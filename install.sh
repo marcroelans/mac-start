@@ -45,6 +45,6 @@ run brew update
 run brew cask install atom
 
 # Install atom packages
-for package in $(<$DIR/.atom/packages); do
+for package in $(<$DIR/atom); do
     run apm install $package
 done
