@@ -33,13 +33,19 @@ run() {
 headline "Setting up your dev environment"
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+echo -n "Disable the sound effects on boot (y/n)? "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+  sudo nvram SystemAudioVolume=" "
+else
+    echo ""
+fi
 
 
 # Install homebrew
 echo -n "Install homebrew (y/n)? "
-read answerHomebrew
-if [ "$answerHomebrew" != "${answerHomebrew#[Yy]}" ] ;then
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
   headline "Install homebrew"
   run '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
   run brew update
@@ -49,8 +55,8 @@ fi
 
 # Install atom
 echo -n "Install atom (y/n)? "
-read answerAtom
-if [ "$answerAtom" != "${answerAtom#[Yy]}" ] ;then
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
   headline "Install atom"
   run brew cask install atom
 else
@@ -58,6 +64,14 @@ else
 fi
 
 # Install atom packages
+echo -n "Install atom packages (y/n)? "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+  headline "Install atom"
+  run brew cask install atom
+else
+    echo ""
+fi
 for package in $(<$DIR/atom); do
     run apm install $package
 done
