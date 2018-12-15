@@ -67,11 +67,25 @@ fi
 echo -n "Install atom packages (y/n)? "
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-  headline "Install atom"
-  run brew cask install atom
+  for package in $(<$DIR/atom); do
+      run apm install $package
+  done
 else
     echo ""
 fi
-for package in $(<$DIR/atom); do
-    run apm install $package
-done
+
+
+# Install fonts
+echo -n "Install fonts(y/n)? "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+  headline "Install fonts"
+  run brew tap caskroom/fonts
+
+  for font in $(<$DIR/fonts); do
+          run brew cask install $font
+  done
+
+else
+    echo ""
+fi
