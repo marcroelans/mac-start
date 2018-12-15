@@ -67,13 +67,12 @@ fi
 echo -n "Install atom packages (y/n)? "
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-  for package in $(<$DIR/atom); do
+  for package in $(<$DIR/.packages/atom); do
       run apm install $package
   done
 else
     echo ""
 fi
-
 
 # Install fonts
 echo -n "Install fonts(y/n)? "
@@ -82,10 +81,20 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
   headline "Install fonts"
   run brew tap caskroom/fonts
 
-  for font in $(<$DIR/fonts); do
+  for font in $(<$DIR/packages/fonts); do
           run brew cask install $font
   done
 
+else
+    echo ""
+fi
+
+# Install atom peferences
+echo -n "Install atom packages (y/n)? "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+  run mkdir -pv ~/.atom
+  run ln -sfv $DIR/.atom/config.cson ~/.atom
 else
     echo ""
 fi
