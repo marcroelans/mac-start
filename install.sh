@@ -37,12 +37,25 @@ sudo nvram SystemAudioVolume=" "
 
 
 # Install homebrew
-headline "Install homebrew"
-run '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-run brew update
+echo -n "Install homebrew (y/n)? "
+read answerHomebrew
+if [ "$answerHomebrew" != "${answerHomebrew#[Yy]}" ] ;then
+  headline "Install homebrew"
+  run '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+  run brew update
+else
+    echo ""
+fi
 
 # Install atom
-run brew cask install atom
+echo -n "Install atom (y/n)? "
+read answerAtom
+if [ "$answerAtom" != "${answerAtom#[Yy]}" ] ;then
+  headline "Install atom"
+  run brew cask install atom
+else
+    echo ""
+fi
 
 # Install atom packages
 for package in $(<$DIR/atom); do
