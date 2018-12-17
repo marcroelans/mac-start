@@ -81,7 +81,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
   headline "Install fonts"
   run brew tap caskroom/fonts
 
-  for font in $(<$DIR/packages/fonts); do
+  for font in $(<$DIR/.packages/fonts); do
           run brew cask install $font
   done
 
@@ -90,7 +90,7 @@ else
 fi
 
 # Install atom peferences
-echo -n "Install atom packages (y/n)? "
+echo -n "Install atom peferences (y/n)? "
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
   run mkdir -pv ~/.atom
