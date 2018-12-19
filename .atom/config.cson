@@ -1,15 +1,5 @@
 "*":
   core:
-    ignoredNames: [
-      ".git"
-      ".hg"
-      ".svn"
-      ".DS_Store"
-      "._*"
-      "Thumbs.db"
-      "desktop.ini"
-      "node_modules"
-    ]
     customFileTypes:
       "source.ini": [
         ".hgrc"
@@ -26,17 +16,29 @@
       "tree-view"
       "image-view"
     ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "node_modules"
+    ]
     telemetryConsent: "limited"
     themes: [
       "framer-ui"
       "one-dark-syntax"
     ]
-  "exception-reporting":
-    userId: "b0b70a23-6ead-4330-9e25-0c81561c4256"
-  welcome:
-    showOnStartup: false
   editor:
     fontFamily: "Fira Code"
     showIndentGuide: true
     showInvisibles: true
     tabLength: 2
+  "exception-reporting":
+    userId: "b0b70a23-6ead-4330-9e25-0c81561c4256"
+  "tool-bar":
+    position: "Left"
+  welcome:
+    showOnStartup: false

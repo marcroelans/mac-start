@@ -41,7 +41,6 @@ else
     echo ""
 fi
 
-
 # Install homebrew
 echo -n "Install homebrew (y/n)? "
 read answer
