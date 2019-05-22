@@ -33,6 +33,7 @@
     ]
   editor:
     fontFamily: "Fira Code"
+    fontSize: 15
     showIndentGuide: true
     showInvisibles: true
     tabLength: 2
