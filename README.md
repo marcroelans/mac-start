@@ -4,7 +4,7 @@ My simple Mac Start.
 ## Installation
 
 ``` shell
-git clone https://github.com/janmarkuslanger/mac-start.git
+git clone https://github.com/marcroelans/mac-start.git
 cd mac-start
 sh install.sh
 ```
